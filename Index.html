@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+  <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #animation-phase-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: white;
+      padding: 10px;
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+    }
+
+    #animation-phase {
+      margin-left: 5px;
+      font-weight: 600;
+      font-size: 30px;
+    }
+  </style>
+
+  <div id="map"></div>
+
+  </body>
+  <script type="text/javascript">
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWthbmltbzEiLCJhIjoiY2w5ODU2cjR2MDR3dTNxcXRpdG5jb3Z6dyJ9.vi2wspa-B9a9gYYWMpEm0A';
+    const map = new mapboxgl.Map({
+      container: 'map',
+      // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+      style: 'mapbox://styles/akanimo1/cljowko3100ni01pm85db624j',
+      center: [37.95309411, 0.689918232],
+      zoom: 2.5,
+      pitch: 0,
+      bearing:0
+
+    });
+    var origin = [37.95309411, 0.689918232];
+    var destination = [2.305714529, 9.5030132];
+    var destination2 = [23.85779957, -22.236609];
+    var destination3 = [29.88518228, -3.261251993];
+    var destination4 = [-23.63401006, 15.07641152];
+    var destination5 = [12.94847414, 6.294168487];
+    var destination6 = [20.52074342, 6.331390034];
+    var destination7 = [18.4271139, 15.28349355];
+    var destination8 = [43.34826587, -11.65886147];
+    var destination9 = [14.87973285, -0.72943916];
+    var destination10 = [-5.571710195, 7.536779279];
+    var destination11 = [23.41982757, -3.338629596];
+    var destination12 = [10.42545667, 1.595464394];
+    var destination13 = [31.51068575, -26.56254094];
+    var destination14 = [39.91490289, 8.729389557];
+    var destination15 = [11.8394109, -0.62844846];
+    var destination16 = [-15.38338039, 13.42861796];
+    var destination17 = [-1.219233363, 7.945304672];
+    var destination18 = [-10.98694885, 10.25598654];
+    var destination19 = [-14.98018676, 11.98007532];
+    var destination20 = [37.95309411, 0.689918232];
+    var destination21 = [28.24475318, -29.60168117];
+    var destination22 = [-9.258988935, 6.520129794];
+    var destination23 = [46.68493467, -19.04163612];
+    var destination24 = [34.23441182, -13.12898646];
+    var destination25 = [-4.346399842, 17.16814621];
+    var destination26 = [57.56415671, -20.28142317];
+    var destination27 = [35.20857703, -17.52523031];
+    var destination28 = [18.16451346, -21.90858163];
+    var destination29 = [8.86863247, 17.08105392];
+    var destination30 = [29.91943968, -2.01468746];
+    var destination31 = [6.606158797, 0.227447043];
+    var destination32 = [-14.61087537, 14.22886149];
+    var destination33 = [-11.78656696, 8.561330385];
+    var destination34 = [45.40037867, 6.524534573];
+    var destination35 = [30.38518569, 7.657782042];
+    var destination36 = [29.95145828, 15.67060231];
+    var destination37 = [34.81832206, -6.35579444];
+    var destination38 = [0.899085757, 8.660743038];
+    var destination39 = [32.34371768, 1.282172922];
+    var destination40 = [27.75521363, -13.16283295];
+    var destination41 = [39.2040947, -5.99653965];
+    var destination42 = [29.71782964, -18.92700122];
+
+    var line = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination]
+      }
+    };
+    var line2 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination2],
+      }
+    };
+    var line3 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination3],
+      }
+    };
+    var line4 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination4],
+      }
+    };
+    var line5 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination5],
+      }
+    };
+    var line6 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination6],
+      }
+    };
+    var line7 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination7],
+      }
+    };
+    var line8 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination8],
+      }
+    };
+    var line9 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination9],
+      }
+    };
+    var line10 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination10],
+      }
+    };
+        var line11 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination11],
+      }
+    };
+    var line12 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination12],
+      }
+    };
+    var line13 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination13],
+      }
+    };
+    var line14 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination14],
+      }
+    };
+    var line15 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination15],
+      }
+    };
+    var line16 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination16],
+      }
+    };
+    var line17 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination17],
+      }
+    };
+    var line18 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination18],
+      }
+    };
+    var line19 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination19],
+      }
+    };
+    var line20 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination20],
+      }
+    };
+    var line21 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination21],
+      }
+    };
+    var line22 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination22],
+      }
+    };
+    var line23 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination23],
+      }
+    };
+    var line24 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination24],
+      }
+    };
+    var line25 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination25],
+      }
+    };
+    var line26 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination26],
+      }
+    };
+    var line27 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination27],
+      }
+    };
+    var line28 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination28],
+      }
+    };
+    var line29 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination29],
+      }
+    };
+    var line30 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination30],
+      }
+    };
+        var line31 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination31],
+      }
+    };
+    var line32 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination32],
+      }
+    };
+    var line33 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination33],
+      }
+    };
+    var line34 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination34],
+      }
+    };
+    var line35 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination35],
+      }
+    };
+    var line36 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination36],
+      }
+    };
+    var line37 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination37],
+      }
+    };
+    var line38 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination38],
+      }
+    };
+    var line39 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination39],
+      }
+    };
+    var line40 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination40],
+      }
+    };
+    var line41 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination41],
+      }
+    };
+        var line42 = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'LineString',
+        'coordinates': [origin, destination42],
+      }
+    };
+    var lineCollection = {
+      'type': 'FeatureCollection',
+      'features': [line, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25, line26, line27, line28, line29, line30, line31, line32, line33, line34, line35, line36, line37, line38, line39, line40, line41, line42]
+    };
+
+    map.on("style.load", () => {
+      // https://en.wikipedia.org/wiki/Transpeninsular_Line
+      const transpeninsularLine = {
+        type: "Feature",
+        properties: {
+          stroke: "#555555",
+          "stroke-width": 2,
+          "stroke-opacity": 1
+        }
+      };
+
+      map.addSource("tp-line", {
+        type: "geojson",
+        data: lineCollection,
+        // Line metrics is required to use the 'line-progress' property
+        lineMetrics: true
+      });
+
+      map.addLayer({
+        id: "tp-line-line",
+        type: "line",
+        source: "tp-line",
+        paint: {
+          "line-color": "white", // Set line color to yellow
+          "line-width": 3,
+          "line-opacity": 1,
+          "line-dasharray": [1, 1] // Set dash pattern for dotted line
+        }
+      });
+      map.setFog({}); // Set the default atmosphere style
+
+      let startTime;
+      const duration = 7000;
+
+      const frame = (time) => {
+        if (!startTime) startTime = time;
+        const animationPhase = (time - startTime) / duration;
+        const animationPhaseDisplay = animationPhase.toFixed(2);
+        // $("#animation-phase").text(animationPhaseDisplay);
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWthbmltbzEiLCJhIjoiY2w5ODU2cjR2MDR3dTNxcXRpdG5jb3Z6dyJ9.vi2wspa-B9a9gYYWMpEm0A';
+
+        // Reduce the visible length of the line by using a line-gradient to cutoff the line
+        // animationPhase is a value between 0 and 1 that reprents the progress of the animation
+        map.setPaintProperty("tp-line-line", "line-gradient", [
+          "step",
+          ["line-progress"],
+          "red",
+          animationPhase,
+          "rgba(0, 0, 0, 0)"
+        ]);
+
+        if (animationPhase > 1) {
+          return;
+        }
+        window.requestAnimationFrame(frame);
+      };
+
+      window.requestAnimationFrame(frame);
+
+      // repeat
+      setInterval(() => {
+        startTime = undefined;
+        window.requestAnimationFrame(frame);
+      }, duration + 2000);
+    });
+  </script>
+
+</html>
